@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar *ngIf="dispositivo">
+    <ion-title>
+      {{dispositivo.nombre}}
+    </ion-title>
+    
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense" *ngIf="dispositivo">
+    <ion-toolbar>
+      <ion-title size="large">
+        {{dispositivo.nombre}}
+      </ion-title>
+      
+      <ion-back-button slot="start"></ion-back-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="dispositivo">
+    <sensor [medicion]="ultimaMedicion"></sensor>
+
+    <div [ngSwitch]="ultimoRiego?.apertura">
+      
+      <ion-button 
+        expand="block" 
+        *ngSwitchCase="0" 
+        (click)="abrirValvula()"
+      >
+        ABRIR ELECTROVÁLVULA
+      </ion-button>
+      
+      <ion-button 
+        expand="block" 
+        *ngSwitchCase="1" 
+        (click)="cerrarValvula()"
+      >
+        CERRAR ELECTROVÁLVULA
+      </ion-button>
+      
+      <ion-button 
+        expand="block" 
+        *ngSwitchDefault 
+        (click)="abrirValvula()"
+      >
+        ABRIR ELECTROVÁLVULA
+      </ion-button>
+    </div>
+      
+    <ion-button 
+      expand="block" 
+      fill="outline" 
+      [routerLink]="['mediciones']" 
+      routerLinkActive="router-link-active" 
+    >
+      VER MEDICIONES
+    </ion-button>
+
+    <ion-button 
+      expand="block"
+      fill="outline" 
+      [routerLink]="[dispositivo.electrovalvulaId + '/riegos']" 
+      routerLinkActive="router-link-active" 
+    >
+      VER LOG RIEGOS
+    </ion-button>
+  </div>
+</ion-content>
+
+

@@ -1,0 +1,40 @@
+#riegos {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#riegos th{
+    text-align: center !important;
+}
+
+#riegos {
+    text-align: center;
+}
+
+#riegos td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#riegos tr:nth-child(even){background-color: #f2f2f2;}
+
+#riegos tr:hover {background-color: #ddd;}
+
+#riegos th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+
+#aviso {
+    width: 100%;
+    text-align: center;
+    color: #999999;
+    margin-top: 50px;
+}

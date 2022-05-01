@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Mediciones
+    </ion-title>
+    
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Mediciones
+      </ion-title>
+      
+      <ion-back-button slot="start"></ion-back-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="listaMediciones">
+    <ng-container *ngIf="listaMediciones.length === 0 else tabla">
+      <div id="aviso">
+        No hay entradas
+      </div>
+    </ng-container> 
+
+    <ng-template #tabla>
+      <table id="mediciones">
+        <tr>
+          <th>
+            Fecha
+          </th>
+          
+          <th>
+            Valor<br>[KPa]
+          </th>
+        </tr>
+
+        <tr *ngFor="let medicion of listaMediciones">
+          <td>
+            {{medicion.fecha | fecha}} 
+          </td>
+          
+          <td>
+            {{medicion.valor}}
+          </td>
+        </tr>
+        
+      </table>
+    </ng-template>
+  </div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
